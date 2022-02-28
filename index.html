@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connor Adams Portfolio</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<section class="header">
+    <nav>
+        <a href="index.html"><img src="image/logo.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">PORTFOLIO</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+<div class="text-box">
+    <h1>Me, Myself, and I</h1>
+    <p>This is my first website, and I am excited to share it with the world!
+    </p>
+    <a href="https://github.com/Cleeadams" class="hero-btn">Visit My GitHub</a>
+</div>
+
+</section>
+
+<!------ About ------>
+<section class="about">
+    <h1>Get To Know Me</h1>
+    <p>Hello there! My name is Connor Adams. I have many hobbies some of which are:
+        hiking, woodworking, and learning new programing/markup languages.
+        I am currently in pursuit of a MS degree in Applied Mathematics at Cal Poly Pomona.
+    </p>
+
+    <div class="row">
+        <div class="about-col">
+            <h3>Intermediate</h3>
+            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
+                to demonstrate the visual form of a document or a typeface without relying on
+                meaningful content. Lorem ipsum may be used as a placeholder before the final
+                copy is available.</p>
+        </div>
+        <div class="about-col">
+            <h3>Degree</h3>
+            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
+                to demonstrate the visual form of a document or a typeface without relying on
+                meaningful content. Lorem ipsum may be used as a placeholder before the final
+                copy is available.</p>
+        </div>
+        <div class="about-col">
+            <h3>Post Graduation</h3>
+            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used
+                to demonstrate the visual form of a document or a typeface without relying on
+                meaningful content. Lorem ipsum may be used as a placeholder before the final
+                copy is available.</p>
+        </div>
+    </div>
+</section>
+<!----- Portfolio ----->
+<section class="portfolio">
+    <h1>My Portfolio</h1>
+    <p>Get ready to ready about the career path of Connor Adams!</p>
+
+    <div class="row">
+        <div class="portfolio-col">
+            <img src="image/CV_Website_p1.jpg">
+        </div>
+        <div class="portfolio-col">
+            <img src="image/CV_Website_p2.jpg">
+        </div>
+    </div>
+
+</section>
+
+<!----- Testimonials ----->
+
+<!----- Footer ----->
+<section class="footer">
+    <h4>About Me</h4>
+    <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+        demonstrate the visual form of a document or a typeface without relying on meaningful
+        content. Lorem ipsum may be used as a placeholder before the final copy is available.
+    </p>
+    <dev class="icons">
+        <a href="https://instagram.com/cleeadams"> <i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/connor-adams-4a5449170/"> <i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/Cleeadams"> <i class="fa-brands fa-github"></i></a>
+        <a href="https://www.snapchat.com/add/cafferysmit?share_id=dxapTlfqlDg&locale=en-US"> <i class="fa-brands fa-snapchat"></i></a>
+    </dev>
+    <p>Made with <i class="fa-regular fa-heart"></i> by Connor Adams</p>
+</section>
+
+
+<!--------Javascript for Toggle Menu-------->
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+
+</body>
+</html>
