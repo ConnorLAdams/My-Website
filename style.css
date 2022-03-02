@@ -31,7 +31,7 @@ nav img{
     position: relative;
 }
 .nav-links ul li a{
-    color: #ffff;
+    color: #fff;
     text-decoration: none;
     font-size: 13px;
 }
@@ -143,6 +143,8 @@ p{
     background: #fff3f3;
     border-radius: 10px;
     margin-bottom: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
     padding: 20px 12px;
     box-sizing: border-box;
     transition: 0.5s;
@@ -162,36 +164,46 @@ h3{
     }
 }
 
-/*----- Portfolio -----*/
-.portfolio{
+/*----- Projects -----*/
+.projects{
     width: 80%
     margin: auto;
     text-align: center;
     padding-top: 50px;
 }
-.portfolio-col{
-    flex-basis: 32%
+.projects-col{
+    flex-basis: 22%;
+    background: #edf4ff;
     border-radius: 10px;
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
-}
-.portfolio-col img{
-    width: 100%;
-}
-.layer{
-    background: transparent;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin-bottom: 5%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
     transition: 0.5s;
 }
-.layer:hover{
+.projects-col:hover{
     background: rgba(226,0,0,0.7);
 }
-
+.projects-col:hover > p{
+    color: #fff;
+}
+.hero-projects-btn{
+    display: inline-block;
+    text.decoration: none;
+    color: #b35f00;
+    border: 1px solid #b35f00;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+}
+.hero-projects-btn:hover{
+    border: 1px solid #b35f00;
+    background: #b35f00;
+    color: #fff;
+    transition: 0.25s;
+}
 /*----- Footer -----*/
 .footer{
     width: 100%;
@@ -208,4 +220,48 @@ h3{
     margin: 0 13px;
     cursor: pointer;
     padding: 18px;
+}
+
+
+/*----- About Tab -----*/
+
+.header-about{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url(image/banner2.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.white-box {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 25%;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    box-shadow: 12px 12px 12px 12px rgba(0,0,0,0.5);
+}
+.header-cv{
+    min-height: 100vh;
+    width: 100%;
+    height: 2900px;
+    background: #70baff;
+    position: relative;
+}
+.pdf-box {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 25%;
+    margin-left: 170px;
+    margin-right: 170px;
+    height: 2650px;
+    padding: 30px 15px;
+    box-sizing: border-box;
+    box-shadow: 12px 12px 12px 12px rgba(0,0,0,0.5);
+}
+.pdf-box embed{
+    width: 100%;
+    height: 100%;
 }
