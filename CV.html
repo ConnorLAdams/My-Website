@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Connor Adams</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -25,9 +25,31 @@
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
     </nav>
-    <div class="pdf-box">
-        <embed type="text/html" src="CV_Website.html" width="500" height="200">
+
+    <div class="cv-box">
+        <img class="cv-img" src="image/Connor%20Adams%20CV_page-0001.jpg">
+        <img class="cv-img" src="image/Connor%20Adams%20CV_page-0002.jpg">
+        <img class="cv-img" src="image/Connor%20Adams%20CV_page-0003.jpg">
     </div>
 </section>
+<!--    <p>Open pdf file<a href="Connor%20Adams%20CV.pdf"></a>example</p>-->
+<!--    <div class="pdf-box">-->
+<!--        <embed type="text/html" src="CV_Website.html" width="500" height="200">-->
+<!--    </div>-->
+
+
+<!--------Javascript for Toggle Menu-------->
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
 </body>
 </html>

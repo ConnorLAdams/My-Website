@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -25,9 +25,34 @@
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
     </nav>
-    <div class="white-box">
-        <h3>Guess Who?!</h3>
-    </div>
+
+<div class="white-box">
+    <h1 class="about-header-main">About My Website!</h1>
+    <p>
+        This website serves a source for my collection of work/projects that people and employers can access
+        to learn more about my skills/knowledge as an applied mathematician, data analyst, and student. If you
+        have any questions or comments for me, please send a message using the contact page.
+    </p>
+    <h3 class="about-header-experience">MY PROJECTS:</h3>
+    <p>
+
+    </p>
+</div>
 </section>
+
+
+<!--------Javascript for Toggle Menu-------->
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
 </body>
 </html>
