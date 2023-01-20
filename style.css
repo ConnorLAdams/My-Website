@@ -164,6 +164,48 @@ h3{
     }
 }
 
+/*----- Research -----*/
+.research-p
+{
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.5;
+}
+.research-btn{
+    display: inline-block;
+    margin-top: 5%;
+    text-decoration: none;
+    border-radius: 20px;
+    color: #007AFF;
+    border: 1px solid #007AFF;
+    padding: 12px 22px;
+    font-size: 12px;
+    background: transparent;
+    cursor: pointer;
+}
+.research-btn:hover{
+    border: 1px solid #007AFF;
+    background: #007AFF;
+    color: #fff;
+    transition: 0.25s;
+}
+.research
+{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+.research-col
+{
+    flex-basis: 50%;
+    padding: 20px 12px;
+}
+.research-img
+{
+    width: 90%;
+}
+
 /*----- Projects -----*/
 .projects{
     width: 80%;
@@ -191,6 +233,7 @@ h3{
 .hero-projects-btn{
     display: inline-block;
     text-decoration: none;
+    border-radius: 20px;
     color: #b35f00;
     border: 1px solid #b35f00;
     padding: 12px 34px;
@@ -255,7 +298,7 @@ h3{
     min-height: 100vh;
     width: 100%;
     /*height: 4800px;*/
-    height: 120%;
+    height: 100%;
     /*background: #70baff;*/
     /*background: #fff;*/
     background-color: #303030;
@@ -294,7 +337,16 @@ h3{
     transform: translate(-50%,-50%);
     position: absolute;
 }
-
+.contact-form
+{
+    min-height: 100vh;
+    width: 100%;
+    /*background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url(image/banner2.jpg);*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    background-color: #303030;
+    position: relative;
+}
 form
 {
     margin: 35px;
@@ -325,6 +377,15 @@ form
     font-size: 12px;
     border: none;
     cursor: pointer;
+}
+.header-contact
+{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url(image/banner2.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
 .contact-header
 {
