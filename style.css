@@ -267,16 +267,46 @@ h3{
 
 
 /*----- About Tab -----*/
-
+.about-btn{
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 20px;
+    color: #007AFF;
+    border: 1px solid #007AFF;
+    padding: 8px 18px;
+    font-size: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+.about-btn:hover{
+    border: 1px solid #007AFF;
+    background: #007AFF;
+    color: #fff;
+    transition: 0.25s;
+}
 .header-about{
     min-height: 100vh;
-    width: 100%;
+    /*width: 100%;*/
+    background-size: cover;
+    background-repeat: repeat;
     /*background-image: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url(image/banner2.jpg);*/
     /*background-position: center;*/
     /*background-size: cover;*/
     background-color: #303030;
-    position: relative;
-
+}
+.about-body
+{
+    background-color: #303030;
+    background-size: cover;
+}
+.about-h3
+{
+    text-align: left;
+}
+.about-intro
+{
+    font-size: 16px;
+    line-height: 1.5;
 }
 .white-box {
     background: #fff;
@@ -286,7 +316,7 @@ h3{
     margin-left: 10%;
     /*margin-left: 5%;*/
     /*margin-right: 50%px;*/
-    padding: 20px 12px;
+    padding: 20px 34px;
     box-sizing: border-box;
     box-shadow: 12px 12px 12px 12px rgba(0,0,0,0.5);
 }
@@ -326,6 +356,7 @@ h3{
     width: 100%;
     height: 100%;
 }
+/*-----Contact-----*/
 
 .contact-box
 {
@@ -386,6 +417,11 @@ form
     background-position: center;
     background-size: cover;
     position: relative;
+}
+@media(max-width: 700px){
+    .header-contact{
+        position: fixed;
+    }
 }
 .contact-header
 {
