@@ -352,6 +352,18 @@ h3{
 .cv-img{
     width: 70%;
 }
+@media(max-width: 700px){
+    .cv-box
+    {
+        width: 95%;
+        margin-top: 5%;
+        transform: translate(8%);
+    }
+    .cv-img
+    {
+        width: 90%;
+    }
+}
 .pdf-box embed{
     width: 100%;
     height: 100%;
@@ -363,7 +375,7 @@ h3{
     width: 70%;
     background-color: #fff;
     box-shadow: 0 0 20px 0 #999;
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
     position: absolute;
