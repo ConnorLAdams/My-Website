@@ -224,12 +224,14 @@ h3{
     box-sizing: border-box;
     transition: 0.5s;
 }
-.projects-col:hover{
+/* .projects-col:hover{
     background: rgba(226,0,0,0.7);
-}
-.projects-col:hover > p{
+    background: #edf4ff;
+    border: 1px solid #303030;
+} */
+/* .projects-col:hover > p{
     color: #fff;
-}
+} */
 .hero-projects-btn{
     display: inline-block;
     text-decoration: none;
