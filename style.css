@@ -355,7 +355,7 @@ h3{
     transform: translate(-50%,-67%);
     position: absolute;
 }
-.resume-pdf-box embed{
+.resume-pdf-box object{
 	height: 100%;
 	width: 100%;
 	zoom: 5;
