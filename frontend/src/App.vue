@@ -1,5 +1,6 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <RedIcon />
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <MyHome />
   <MyIcon />
   <MyProjects />
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import RedIcon from './components/RedIcon.vue'
 import HelloWorld from './components/HelloWorld.vue'
 import MyHome from './components/MyHome.vue'
 import MyIcon from './components/MyIcon.vue'
@@ -18,6 +20,7 @@ import MyProjects from './components/MyProjects.vue'
 export default {
   name: 'App',
   components: {
+    RedIcon,
     MyHome,
     MyIcon,
     MyProjects,
