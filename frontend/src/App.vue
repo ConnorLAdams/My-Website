@@ -1,6 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <MyHome />
+  <MyIcon />
   <MyProjects />
   <HelloWorld msg="Welcome to Your Vue.js App"/>
   <!-- <div id="app"> -->
@@ -11,12 +12,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import MyHome from './components/MyHome.vue'
+import MyIcon from './components/MyIcon.vue'
 import MyProjects from './components/MyProjects.vue'
 
 export default {
   name: 'App',
   components: {
     MyHome,
+    MyIcon,
     MyProjects,
     HelloWorld,
   },
