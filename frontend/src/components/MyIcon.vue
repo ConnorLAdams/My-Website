@@ -14,7 +14,7 @@ export default {
   async created() {
     try {
       // Fetch raw bytes from the API
-      const response = await api.get("/pyrrhus/Red_Panda_Icon.png", {
+      const response = await api.get("/pyrrhus2/Red_Panda_Tab.png", {
         responseType: "arraybuffer", // Request the raw bytes
       });
 

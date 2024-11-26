@@ -12,7 +12,7 @@ pub async fn get_projects() -> impl Responder {
     HttpResponse::Ok().json(projects) // Returns a JSON response
 }
 
-#[get("/pyrrhus/{file_name}")]
+#[get("/pyrrhus2/{file_name}")]
 pub async fn get_icon(path: web::Path<String>) -> impl Responder {
     let file_name: String = path.into_inner();
     let file_path = Path::new("icons").join(file_name);
@@ -21,7 +21,7 @@ pub async fn get_icon(path: web::Path<String>) -> impl Responder {
     let mut buffer = Vec::new();
 
     file.read_to_end(&mut buffer).expect("Bad File");
-    HttpResponse::Ok().json(buffer) // Returns a JSON response
+    HttpResponse::Ok().body(buffer) // Returns a JSON response
 }
 
 #[get("/pyrrhus")]
