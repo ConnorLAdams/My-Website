@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ImageComponent = () => {
+const TabIcon = () => {
   const [imageSrc, setImageSrc] = useState(null);
 
   useEffect(() => {
@@ -35,15 +35,15 @@ const ImageComponent = () => {
   }, []);
 
   return (
-    <div>
+    <head>
       {imageSrc ? (
-        <img src={imageSrc} alt="Red Panda Icon" />
+        <link src={imageSrc} rel="icon" />
       ) : (
         <p>Loading image...</p>
       )}
-    </div>
+    </head>
   );
 };
 
-export default ImageComponent;
+export default TabIcon;
 
