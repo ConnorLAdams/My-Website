@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-label="Dome house on a hill illustration">
+  <defs>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecd2ab"/>
+      <stop offset="1" stop-color="#caa06f"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="520" fill="url(#dusk)"/>
+  <circle cx="175" cy="140" r="44" fill="#f7ead0" opacity="0.85"/>
+  <path d="M0 380 q360 -70 720 0 V520 H0 Z" fill="#7d6a4f"/>
+  <path d="M0 430 q360 -50 720 0 V520 H0 Z" fill="#6a5942"/>
+  <path d="M250 392 a112 112 0 0 1 224 0 Z" fill="#3f4a52"/>
+  <path d="M250 392 a112 112 0 0 1 224 0" fill="none" stroke="#2a333b" stroke-width="6"/>
+  <rect x="338" y="320" width="48" height="72" rx="6" fill="#222b33"/>
+  <circle cx="305" cy="350" r="14" fill="#cfe0e6" opacity="0.85"/>
+  <circle cx="419" cy="350" r="14" fill="#cfe0e6" opacity="0.85"/>
+</svg>

@@ -1,0 +1,62 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.7rem 1.3rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Outline (primary CTA style in the design) */
+.btn--outline {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+  background: transparent;
+}
+
+.btn--outline:hover {
+  background: var(--c-accent);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Solid */
+.btn--solid {
+  background: var(--c-accent-fill);
+  color: #fff;
+}
+
+.btn--solid:hover {
+  background: var(--c-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Dark (e.g. CTA "Download") */
+.btn--dark {
+  background: #111;
+  color: #fff;
+}
+
+.btn--dark:hover {
+  background: #000;
+  box-shadow: var(--shadow-md);
+}

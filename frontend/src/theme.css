@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Design tokens + base + light/dark theme + motion utilities
+   Derived from Figma "Website" (Red Panda theme), modernized.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand / accent ---- */
+  --c-accent: #e0621d;          /* orange text / border */
+  --c-accent-fill: #c76936;     /* orange fill */
+  --c-accent-strong: #c95025;   /* logo / strong orange */
+  --c-accent-soft: rgba(224, 98, 29, 0.12);
+
+  /* ---- Light theme surfaces & text ---- */
+  --c-bg: #ffffff;
+  --c-bg-elev: #ffffff;
+  --c-surface: #efe4d3;         /* cream cards / projects bg */
+  --c-surface-2: #f6efe4;       /* lighter cream */
+  --c-text: #3a3a3a;            /* body */
+  --c-text-muted: #6b6b6b;
+  --c-heading: #75834d;         /* olive section titles / hero H1 */
+  --c-subtitle: #9d7d50;        /* hero subtitle / tan */
+  --c-green-dark: #3a4632;      /* footer / CTA base (refined per-section) */
+  --c-green-deep: #2b3526;
+  --c-on-dark: #f5f2ea;
+  --c-border: rgba(58, 58, 58, 0.12);
+  --c-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-h1: clamp(2.5rem, 1.7rem + 3.4vw, 3.25rem);   /* ~40 -> 52px */
+  --fs-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);  /* ~28 -> 36px */
+  --fs-h3: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);   /* ~19 -> 24px */
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+  --tracking-tight: -0.02em;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows (soft, modern) ---- */
+  --shadow-sm: 0 1px 2px rgba(20, 20, 20, 0.06), 0 2px 8px rgba(20, 20, 20, 0.05);
+  --shadow-md: 0 6px 18px rgba(20, 20, 20, 0.08), 0 2px 6px rgba(20, 20, 20, 0.05);
+  --shadow-lg: 0 18px 40px rgba(20, 20, 20, 0.14), 0 6px 14px rgba(20, 20, 20, 0.08);
+
+  /* ---- Layout ---- */
+  --container: 1152px;
+  --container-wide: 1280px;
+  --header-h: 64px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-fast: 140ms;
+  --t-med: 240ms;
+  --t-slow: 520ms;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --c-bg: #16180f;
+  --c-bg-elev: #1e2117;
+  --c-surface: #24281c;
+  --c-surface-2: #2c3122;
+  --c-text: #e7e3d6;
+  --c-text-muted: #b3ad9c;
+  --c-heading: #b7c489;         /* brighter olive for contrast */
+  --c-subtitle: #d3b483;
+  --c-green-dark: #11150d;
+  --c-green-deep: #0c0f08;
+  --c-border: rgba(231, 227, 214, 0.14);
+  --c-overlay: rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Base / reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--t-med) var(--ease), color var(--t-med) var(--ease);
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--c-heading);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); }
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.section {
+  padding-block: clamp(var(--space-7), 4vw, var(--space-9));
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+/* offset anchored sections for the sticky header */
+:where(section[id]) {
+  scroll-margin-top: calc(var(--header-h) + var(--space-4));
+}
+
+/* ==========================================================================
+   Scroll-reveal / motion utilities
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal--delay-1 { transition-delay: 80ms; }
+.reveal--delay-2 { transition-delay: 160ms; }
+.reveal--delay-3 { transition-delay: 240ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
