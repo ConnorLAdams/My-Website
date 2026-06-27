@@ -98,9 +98,21 @@
   border-color: #fff;
 }
 
-.cta__note {
+.cta__alt {
   font-size: var(--fs-sm);
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.cta__link {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity var(--t-fast) var(--ease);
+}
+
+.cta__link:hover {
+  opacity: 0.8;
 }
 
 /* Document (résumé) preview */

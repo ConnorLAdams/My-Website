@@ -1,10 +1,10 @@
 import React from 'react';
 import Reveal from './Reveal';
-import { DownloadIcon } from './icons';
+import { DownloadIcon, EyeIcon } from './icons';
 import './CTA.css';
 
 const RESUME_URL = `${process.env.PUBLIC_URL}/assets/Resume.pdf`;
-const CV_URL = `${process.env.PUBLIC_URL}/assets/Curriculum%20Vitae.pdf`;
+const CV_URL = `${process.env.PUBLIC_URL}/assets/Curriculum-Vitae.pdf`;
 
 export default function CTA() {
   return (
@@ -15,8 +15,7 @@ export default function CTA() {
             <p className="cta__eyebrow">Résumé / CV</p>
             <h2 className="cta__title">Let&rsquo;s work together</h2>
             <p className="cta__text">
-              Business Intelligence manager and applied mathematician focused on
-              data and machine learning. Grab the one-page résumé, or the full CV
+              Grab the one-page résumé, or the full CV
               for the academic detail.
             </p>
             <div className="cta__actions">
@@ -24,12 +23,31 @@ export default function CTA() {
                 <DownloadIcon />
                 Download Résumé
               </a>
-              <a className="cta__btn cta__btn--ghost" href={CV_URL} download>
-                <DownloadIcon />
-                Curriculum Vitae
+              <a
+                className="cta__btn cta__btn--ghost"
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <EyeIcon />
+                Preview
               </a>
             </div>
-            <p className="cta__note">Both available as PDF.</p>
+            <p className="cta__alt">
+              Prefer the full CV?{' '}
+              <a className="cta__link" href={CV_URL} download>
+                Download
+              </a>{' '}
+              &middot;{' '}
+              <a
+                className="cta__link"
+                href={CV_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Preview
+              </a>
+            </p>
           </div>
 
           <div className="cta__graphic" aria-hidden="true">

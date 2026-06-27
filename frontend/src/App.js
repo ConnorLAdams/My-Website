@@ -6,6 +6,7 @@ import Education from './components/Education';
 import Research from './components/Research';
 import Projects from './components/Projects';
 import CTA from './components/CTA';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
         <Research />
         <Projects />
         <CTA />
+        <Contact />
       </main>
       <Footer />
     </ThemeProvider>

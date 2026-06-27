@@ -31,11 +31,9 @@
   box-shadow: var(--shadow-sm);
 }
 
-.project-card__avatar img {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  object-fit: contain;
+.project-card__avatar svg {
+  width: 46px;
+  height: 46px;
 }
 
 .project-card__title {

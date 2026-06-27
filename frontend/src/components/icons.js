@@ -42,6 +42,55 @@ export function RocketIcon(props) {
   );
 }
 
+/* Project icons: each derived from the project's topic. */
+export function LogisticCurveIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M5 4v15h15" />
+      <path d="M5 17C12 17 12 7 19 7" />
+    </svg>
+  );
+}
+
+export function OscillatorIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M3 12h1" />
+      <path d="M4 12Q7 5 10 12T16 12 22 12" />
+    </svg>
+  );
+}
+
+export function MatrixIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M8 4H5v16h3" />
+      <path d="M16 4h3v16h-3" />
+      <g fill="currentColor" stroke="none">
+        <circle cx="9.5" cy="8.5" r="1.1" />
+        <circle cx="12" cy="8.5" r="1.1" />
+        <circle cx="9.5" cy="12" r="1.1" />
+        <circle cx="12" cy="12" r="1.1" />
+        <circle cx="14.5" cy="12" r="1.1" />
+        <circle cx="12" cy="15.5" r="1.1" />
+        <circle cx="14.5" cy="15.5" r="1.1" />
+      </g>
+    </svg>
+  );
+}
+
+export function OrbitIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <g transform="rotate(-25 12 12)">
+        <ellipse cx="12" cy="12" rx="9" ry="4.5" />
+        <circle cx="21" cy="12" r="1.5" fill="currentColor" stroke="none" />
+      </g>
+      <circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function ArrowRightIcon(props) {
   return (
     <svg {...stroke} aria-hidden="true" {...props}>
@@ -56,6 +105,15 @@ export function DownloadIcon(props) {
       <path d="M12 3v12" />
       <path d="m7 11 5 5 5-5" />
       <path d="M5 21h14" />
+    </svg>
+  );
+}
+
+export function EyeIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+      <circle cx="12" cy="12" r="3" />
     </svg>
   );
 }

@@ -31,6 +31,8 @@ export const projects = [
   {
     id: 'logistic',
     title: 'Logistic Equations',
+    icon: 'logistic',
+    iconColor: '#5a8f3c',
     blurb:
       'Research in the stability of logistic equations with delay. Utilized MATLAB to observe solutions and design plots which presented when the delayed-logistic equation becomes unstable. Came to the conclusion that the equilibrium of the population is the carry capacity.',
     href: 'https://github.com/ConnorLAdams/Logistic-Equations/blob/main/Logistic_Equation.pdf',
@@ -38,6 +40,8 @@ export const projects = [
   {
     id: 'oscillators',
     title: 'Oscillators',
+    icon: 'oscillator',
+    iconColor: '#c76936',
     blurb:
       'Explored the stability of a single oscillator and coupled system oscillators using MATLAB. Discussed the similarities and differences between the two types of oscillators. Noticed that the coupled system experiences almost the same stable cycles as the single oscillator.',
     href: 'https://github.com/ConnorLAdams/Coupled-System-Oscillators/blob/main/Coupled_System_Oscillators_Connor_Adams.pdf',
@@ -45,6 +49,8 @@ export const projects = [
   {
     id: 'tridiagonal',
     title: 'Tridiagonal Matrix',
+    icon: 'matrix',
+    iconColor: '#3f7cb6',
     blurb:
       'Discovered solutions and the closed form for computing the eigenvalues for a specific type of tridiagonal matrix. Results showed that LU factorization w/o pivot were the best methods because of their efficiency with large tridiagonal matrices.',
     href: 'https://github.com/ConnorLAdams/System-of-a-Tridiagonal-Matrix/blob/main/MAT_5080_Project.pdf',
@@ -52,6 +58,8 @@ export const projects = [
   {
     id: 'orbits',
     title: 'Orbits',
+    icon: 'orbit',
+    iconColor: '#7a5bb0',
     blurb:
       'Modeled orbital motion with numerical integration, simulating two-body and perturbed trajectories and comparing integrator accuracy and stability over long time horizons.',
     href: 'https://github.com/ConnorLAdams/Optimizing-Jump-Between-Orbits/blob/main/MAT_5800_Project.pdf',

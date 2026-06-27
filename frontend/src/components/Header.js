@@ -64,7 +64,7 @@ export default function Header() {
             </ul>
             <Button
               as="a"
-              href="#footer"
+              href="#contact"
               variant="outline"
               className="site-nav__cta"
               onClick={closeMenu}

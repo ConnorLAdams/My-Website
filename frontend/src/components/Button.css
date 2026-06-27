@@ -26,6 +26,13 @@
   transform: translateY(0);
 }
 
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Outline (primary CTA style in the design) */
 .btn--outline {
   border-color: var(--c-accent);
