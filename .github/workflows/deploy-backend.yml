@@ -1,0 +1,38 @@
+name: Deploy backend (Cloud Run)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # required for Workload Identity Federation
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ vars.GCP_PROJECT }}
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      # Re-deploying an existing service retains its env vars + secrets
+      # (RESEND_API_KEY, CONTACT_*), so they don't need to be re-specified here.
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy backend \
+            --source backend \
+            --region us-central1 \
+            --project "${{ vars.GCP_PROJECT }}" \
+            --quiet

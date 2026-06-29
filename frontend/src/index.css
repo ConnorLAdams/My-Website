@@ -1,4 +1,331 @@
-/* Base styles, tokens, and themes live in theme.css. Keep this file minimal. */
+@import "tailwindcss";
+
+/* Drive `dark:` utilities from the existing [data-theme="dark"] attribute on <html>. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+  Colors are mapped (inline) to the CSS variables defined in theme.css, which is
+  the single source of truth and already switches for light/dark. `inline` makes
+  utilities emit the var() reference directly so theming keeps working.
+*/
+@theme inline {
+  --color-accent: var(--c-accent);
+  --color-accent-fill: var(--c-accent-fill);
+  --color-accent-strong: var(--c-accent-strong);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-page: var(--c-bg);
+  --color-elevated: var(--c-bg-elev);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-body: var(--c-text);
+  --color-muted: var(--c-text-muted);
+  --color-heading: var(--c-heading);
+  --color-subtitle: var(--c-subtitle);
+  --color-green-dark: var(--c-green-dark);
+  --color-green-deep: var(--c-green-deep);
+  --color-on-dark: var(--c-on-dark);
+  --color-line: var(--c-border);
+  --color-overlay: var(--c-overlay);
+}
+
+/* Static scales (these do not change between themes). */
+@theme {
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-h1: clamp(2.5rem, 1.7rem + 3.4vw, 3.25rem);
+  --text-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+  --text-h3: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+
+  --ease-brand: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/*
+  Complex, stateful, or decorative styles kept as scoped classes (idiomatic
+  Tailwind @layer components). They consume the same theme.css tokens.
+*/
+@layer components {
+  /* ---- Header: sticky bar, backdrop blur, nav underline, hamburger, mobile menu ---- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--c-bg);
+    border-bottom: 1px solid transparent;
+    transition: background-color var(--t-med) var(--ease),
+      border-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+  }
+
+  @supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+    .site-header {
+      background: color-mix(in srgb, var(--c-bg) 78%, transparent);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      backdrop-filter: blur(12px) saturate(140%);
+    }
+  }
+
+  .site-header.is-scrolled {
+    border-bottom-color: var(--c-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    min-height: var(--header-h);
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .logo__img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .logo__text {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--c-accent-strong);
+  }
+
+  .site-header__right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-nav__link {
+    position: relative;
+    display: block;
+    padding: 10px 14px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    transition: color var(--t-fast) var(--ease);
+  }
+
+  .site-nav__link::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--c-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--t-med) var(--ease);
+  }
+
+  .site-nav__link:hover {
+    color: var(--c-accent);
+  }
+
+  .site-nav__link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .site-nav__cta {
+    margin-left: var(--space-2);
+  }
+
+  .nav-toggle {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1.5px solid var(--c-border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+  }
+
+  .nav-toggle span {
+    position: absolute;
+    left: 9px;
+    right: 9px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--c-text);
+    transition: transform var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+  }
+
+  .nav-toggle span:nth-child(1) { top: 13px; }
+  .nav-toggle span:nth-child(2) { top: 19px; }
+  .nav-toggle span:nth-child(3) { top: 25px; }
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (max-width: 880px) {
+    .nav-toggle { display: block; }
+
+    .site-nav {
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-3);
+      padding: var(--space-5);
+      background: var(--c-bg-elev);
+      border-top: 1px solid var(--c-border);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+    }
+
+    .site-nav.is-open {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .site-nav__list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .site-nav__link { padding: 14px 6px; }
+    .site-nav__link::after { bottom: 8px; }
+    .site-nav__cta { margin-left: 0; align-self: flex-start; }
+  }
+
+  /* ---- CTA résumé mockup (decorative) ---- */
+  .cta__graphic {
+    position: relative;
+    min-height: 240px;
+  }
+
+  .cta__doc {
+    position: absolute;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cta__doc--back {
+    width: 150px;
+    height: 198px;
+    right: 72px;
+    top: 20px;
+    transform: rotate(-7deg);
+    opacity: 0.5;
+  }
+
+  .cta__doc--front {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 170px;
+    height: 216px;
+    right: 8px;
+    top: 6px;
+    padding: 16px;
+    transform: rotate(5deg);
+  }
+
+  .cta__doc-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #e7a23c;
+  }
+
+  .cta__doc-bar {
+    height: 9px;
+    border-radius: 4px;
+    background: #cf5b2a;
+  }
+
+  .cta__doc-bar--title { width: 72%; }
+  .cta__doc-bar--sub { width: 50%; height: 7px; background: #e0a878; }
+
+  .cta__doc-line {
+    height: 6px;
+    border-radius: 3px;
+    background: #d9d2c7;
+  }
+
+  .cta__doc-line--short { width: 58%; }
+
+  /* ---- Contact form controls ---- */
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--c-text);
+    background: var(--c-bg-elev);
+    border: 1.5px solid var(--c-border);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--t-fast) var(--ease),
+      box-shadow var(--t-fast) var(--ease);
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--c-accent);
+    box-shadow: 0 0 0 3px var(--c-accent-soft);
+  }
+
+  .contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .contact-form select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    background-size: 16px;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

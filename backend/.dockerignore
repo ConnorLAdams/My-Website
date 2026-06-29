@@ -1,0 +1,12 @@
+# Build artifacts
+target/
+
+# Local secrets / env (never bake these into the image)
+.env
+.env.local
+.env.*
+
+# VCS / docs
+.git/
+.gitignore
+*.md
