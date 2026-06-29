@@ -1,7 +1,6 @@
 # Rust
 target/
 debug/
-Cargo.lock
 
 **/*.rs.ck
 *.pdb
