@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import LazyImage from './LazyImage';
 import Reveal from './Reveal';
 import { ArrowRightIcon } from './icons';
 
@@ -18,8 +19,11 @@ export default function HorizontalCard({
           reversed ? ' min-[820px]:order-2' : ''
         }`}
       >
-        <img
-          className="block aspect-[16/11] w-full object-cover transition-transform duration-[520ms] ease-brand group-hover:scale-[1.04]"
+        {/* Reveal already provides overflow-hidden + rounded-md, so the
+            skeleton is clipped to the same rounded rect automatically. */}
+        <LazyImage
+          className="aspect-[16/11] w-full"
+          imgClassName="object-cover transition-transform duration-[520ms] ease-brand group-hover:scale-[1.04]"
           src={image}
           alt={alt}
           loading="lazy"

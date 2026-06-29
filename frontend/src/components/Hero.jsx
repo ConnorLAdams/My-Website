@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import LazyImage from './LazyImage';
 import Reveal from './Reveal';
 
 export default function Hero() {
@@ -33,9 +34,12 @@ export default function Hero() {
         </div>
 
         <Reveal className="group relative before:absolute before:inset-[14%_-8%_-14%_12%] before:z-0 before:rounded-lg before:bg-[radial-gradient(60%_60%_at_70%_30%,var(--c-accent-soft),transparent_75%)] before:content-['']">
-          <img
-            className="relative z-[1] aspect-[686/481] w-full rounded-md object-cover shadow-[var(--shadow-lg)] transition-transform duration-[520ms] ease-brand group-hover:scale-[1.03]"
-            src="/assets/hero-rooster.jpg"
+          {/* className → wrapper (layout + z-index + shadow + rounded corners)
+              imgClassName → img-specific styles (object-fit, hover scale) */}
+          <LazyImage
+            className="relative z-[1] aspect-[686/481] w-full rounded-md shadow-[var(--shadow-lg)]"
+            imgClassName="object-cover transition-transform duration-[520ms] ease-brand group-hover:scale-[1.03]"
+            src="/api/media/hero-rooster.jpg"
             alt="A proud rooster strutting along the water's edge"
             loading="eager"
           />

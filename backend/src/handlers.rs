@@ -1,9 +1,63 @@
-use actix_web::{post, web, HttpResponse, Responder};
+use actix_files::NamedFile;
+use actix_web::http::header;
+use actix_web::{get, post, web, HttpRequest, HttpResponse, Responder};
 use serde::Deserialize;
 use serde_json::json;
 
 pub async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Hello from Rust!")
+}
+
+/// Serves static media files (images, PDFs) from the `media/` directory.
+///
+/// Path: GET /api/media/{filename}
+/// The `MEDIA_DIR` environment variable overrides the default `./media` path,
+/// which is useful when mounting a Cloud Storage bucket via FUSE in production.
+#[get("/media/{filename}")]
+pub async fn serve_media(
+    req: HttpRequest,
+    path: web::Path<String>,
+) -> actix_web::Result<HttpResponse> {
+    let filename = path.into_inner();
+
+    // Reject any filename containing path separators or traversal sequences.
+    if filename.contains('/') || filename.contains('\\') || filename.contains("..") {
+        return Err(actix_web::error::ErrorBadRequest("invalid filename"));
+    }
+
+    let media_dir = std::env::var("MEDIA_DIR").unwrap_or_else(|_| "./media".to_string());
+    let file_path = std::path::Path::new(&media_dir).join(&filename);
+
+    let named_file = NamedFile::open(&file_path)
+        .map_err(|_| actix_web::error::ErrorNotFound("media not found"))?;
+
+    // Cache images aggressively (content is immutable for a given filename).
+    // PDFs use a shorter TTL so an updated résumé is picked up within a day.
+    let ext = file_path
+        .extension()
+        .and_then(|e| e.to_str())
+        .unwrap_or("")
+        .to_lowercase();
+    let cache_control: &'static str = match ext.as_str() {
+        "jpg" | "jpeg" | "png" | "svg" | "webp" | "gif" | "ico" => {
+            "public, max-age=31536000, immutable"
+        }
+        "pdf" => "public, max-age=86400",
+        _ => "public, max-age=3600",
+    };
+
+    let mut response = named_file
+        .use_last_modified(true)
+        .use_etag(true)
+        .respond_to(&req)
+        .map_into_boxed_body();
+
+    response.headers_mut().insert(
+        header::CACHE_CONTROL,
+        header::HeaderValue::from_static(cache_control),
+    );
+
+    Ok(response)
 }
 
 #[derive(Deserialize)]
