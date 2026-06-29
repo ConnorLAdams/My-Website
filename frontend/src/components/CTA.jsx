@@ -2,8 +2,8 @@ import React from 'react';
 import Reveal from './Reveal';
 import { DownloadIcon, EyeIcon } from './icons';
 
-const RESUME_URL = '/assets/Resume.pdf';
-const CV_URL = '/assets/Curriculum-Vitae.pdf';
+const RESUME_URL = '/api/media/Resume.pdf';
+const CV_URL = '/api/media/Curriculum-Vitae.pdf';
 
 export default function CTA() {
   return (

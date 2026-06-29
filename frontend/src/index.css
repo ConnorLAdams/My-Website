@@ -26,6 +26,8 @@
   --color-on-dark: var(--c-on-dark);
   --color-line: var(--c-border);
   --color-overlay: var(--c-overlay);
+  --color-skeleton: var(--c-skeleton);
+  --color-skeleton-shine: var(--c-skeleton-shine);
 }
 
 /* Static scales (these do not change between themes). */
@@ -324,6 +326,34 @@
     background-position: right 0.85rem center;
     background-size: 16px;
   }
+}
+
+/* ==========================================================================
+   Image skeleton / lazy-load shimmer
+   Used by LazyImage.jsx — the span sits absolute over the image slot and
+   fades out once the image's onLoad fires.
+   ========================================================================== */
+
+.img-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--c-skeleton)       0%,
+    var(--c-skeleton-shine) 50%,
+    var(--c-skeleton)       100%
+  );
+  background-size: 300% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The global transition-duration override in theme.css already collapses the
+     opacity fade; also disable the background animation here for completeness. */
+  .img-skeleton { animation: none; }
 }
 
 code {

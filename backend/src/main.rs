@@ -36,7 +36,11 @@ async fn main() -> std::io::Result<()> {
             .route("/", web::get().to(handlers::hello))
             // API lives under /api so the Firebase Hosting rewrite
             // (/api/** -> this service) maps cleanly onto these routes.
-            .service(web::scope("/api").service(handlers::contact))
+            .service(
+                web::scope("/api")
+                    .service(handlers::contact)
+                    .service(handlers::serve_media),
+            )
     })
     .bind(("0.0.0.0", port))?
     .run()
