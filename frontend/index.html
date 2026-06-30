@@ -11,6 +11,9 @@
             t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
           }
           document.documentElement.setAttribute("data-theme", t);
+          var p = localStorage.getItem("ca-palette");
+          if (p !== "panda" && p !== "pro") { p = "panda"; }
+          document.documentElement.setAttribute("data-palette", p);
         } catch (e) {}
       })();
     </script>

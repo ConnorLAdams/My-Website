@@ -75,10 +75,16 @@
   --t-med: 240ms;
   --t-slow: 520ms;
 
+  /* ---- Component-specific (palette-aware) ---- */
+  --c-cta-grad: linear-gradient(100deg, #34402c 0%, #54653a 45%, #c98a3a 100%);
+  --c-cta-btn-text: #7a3b16;
+  --c-btn-dark-bg: #111;
+
   color-scheme: light;
 }
 
-[data-theme="dark"] {
+/* Goofy (Red Panda) — dark */
+[data-theme="dark"]:not([data-palette="pro"]) {
   --c-bg: #16180f;
   --c-bg-elev: #1e2117;
   --c-surface: #24281c;
@@ -96,6 +102,73 @@
   --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.6);
   --c-skeleton: #282e1e;
   --c-skeleton-shine: #323826;
+  color-scheme: dark;
+}
+
+/* ---- Professional — light (parchment bg, forest-green headings, cabernet accents) ---- */
+[data-palette="pro"] {
+  /* accent — cabernet */
+  --c-accent: #8a2e3e;
+  --c-accent-fill: #7b2d3b;
+  --c-accent-strong: #5e2230;
+  --c-accent-soft: rgba(123, 45, 59, 0.12);
+
+  /* surfaces & text */
+  --c-bg: #f7f4ee;
+  --c-bg-elev: #fffdf9;
+  --c-surface: #ece6da;
+  --c-surface-2: #f2ede3;
+  --c-text: #2b2b28;
+  --c-text-muted: #5f5f58;
+  --c-heading: #294a32;        /* forest green */
+  --c-subtitle: #5d6b54;       /* sage */
+  --c-green-dark: #213a29;
+  --c-green-deep: #15261a;
+  --c-on-dark: #f2efe8;
+  --c-border: rgba(43, 43, 40, 0.12);
+  --c-overlay: rgba(0, 0, 0, 0.5);
+
+  --c-skeleton: #e7e0d3;
+  --c-skeleton-shine: #f3ece0;
+
+  /* component-specific */
+  --c-cta-grad: linear-gradient(100deg, #213a29 0%, #3c5238 45%, #7b2d3b 100%);
+  --c-cta-btn-text: #7b2d3b;
+  --c-btn-dark-bg: #1f3324;
+
+  color-scheme: light;
+}
+
+/* ---- Professional — dark (deep forest-green bg, light text, brightened cabernet) ---- */
+[data-palette="pro"][data-theme="dark"] {
+  /* accent — brightened cabernet/rose for contrast on dark */
+  --c-accent: #d2798a;
+  --c-accent-fill: #9e3b4d;
+  --c-accent-strong: #e0909c;
+  --c-accent-soft: rgba(210, 121, 138, 0.16);
+
+  --c-bg: #0f1a12;
+  --c-bg-elev: #152017;
+  --c-surface: #1b271d;
+  --c-surface-2: #22301f;
+  --c-text: #e8e6dc;
+  --c-text-muted: #aab0a2;
+  --c-heading: #ece9df;        /* light parchment */
+  --c-subtitle: #9fb083;       /* sage */
+  --c-green-dark: #0b140d;
+  --c-green-deep: #070d08;
+  --c-on-dark: #eef0e6;
+  --c-border: rgba(232, 230, 220, 0.14);
+  --c-overlay: rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.6);
+  --c-skeleton: #1d2a1f;
+  --c-skeleton-shine: #273524;
+
+  /* component-specific (CTA button sits on a white chip — keep dark cabernet text via the light block) */
+  --c-cta-grad: linear-gradient(100deg, #0f1a12 0%, #23371f 45%, #7b2d3b 100%);
+
   color-scheme: dark;
 }
 

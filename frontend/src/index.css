@@ -228,6 +228,11 @@
     .site-nav__cta { margin-left: 0; align-self: flex-start; }
   }
 
+  /* ---- CTA panel: palette-aware gradient background ---- */
+  .cta__panel {
+    background-image: var(--c-cta-grad);
+  }
+
   /* ---- CTA résumé mockup (decorative) ---- */
   .cta__graphic {
     position: relative;

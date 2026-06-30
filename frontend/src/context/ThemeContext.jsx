@@ -7,8 +7,14 @@ import React, {
 } from 'react';
 
 const STORAGE_KEY = 'ca-theme';
+const PALETTE_KEY = 'ca-palette';
 
-const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {} });
+const ThemeContext = createContext({
+  theme: 'light',
+  toggleTheme: () => {},
+  palette: 'panda',
+  togglePalette: () => {},
+});
 
 function getInitialTheme() {
   if (typeof window === 'undefined') return 'light';
@@ -23,8 +29,28 @@ function getInitialTheme() {
   }
 }
 
+function getInitialPalette() {
+  if (typeof window === 'undefined') return 'panda';
+  try {
+    const stored = window.localStorage.getItem(PALETTE_KEY);
+    if (stored === 'panda' || stored === 'pro') return stored;
+    return 'panda'; // first-time visitors default to the Goofy (Red Panda) look
+  } catch (e) {
+    return 'panda';
+  }
+}
+
+// Browser-chrome color per palette + mode (keeps the mobile address bar on-theme).
+const THEME_COLORS = {
+  'panda-light': '#ffffff',
+  'panda-dark': '#16180f',
+  'pro-light': '#f7f4ee',
+  'pro-dark': '#0f1a12',
+};
+
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
+  const [palette, setPalette] = useState(getInitialPalette);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -35,13 +61,39 @@ export function ThemeProvider({ children }) {
     }
   }, [theme]);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-palette', palette);
+    try {
+      window.localStorage.setItem(PALETTE_KEY, palette);
+    } catch (e) {
+      /* ignore write errors (e.g. private mode) */
+    }
+  }, [palette]);
+
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute(
+        'content',
+        THEME_COLORS[`${palette}-${theme}`] || THEME_COLORS['panda-light'],
+      );
+    }
+  }, [palette, theme]);
+
   const toggleTheme = useCallback(
     () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark')),
     [],
   );
 
+  const togglePalette = useCallback(
+    () => setPalette((prev) => (prev === 'pro' ? 'panda' : 'pro')),
+    [],
+  );
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, palette, togglePalette }}
+    >
       {children}
     </ThemeContext.Provider>
   );

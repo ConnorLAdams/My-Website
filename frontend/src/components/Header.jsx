@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from './Button';
 import ThemeToggle from './ThemeToggle';
+import PaletteToggle from './PaletteToggle';
 
 const NAV_ITEMS = [
   { label: 'Education', href: '#education' },
@@ -72,6 +73,7 @@ export default function Header() {
             </Button>
           </nav>
 
+          <PaletteToggle />
           <ThemeToggle />
 
           <button
