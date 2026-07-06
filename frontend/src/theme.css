@@ -31,6 +31,7 @@
 
   /* ---- Typography ---- */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-display: clamp(2.75rem, 1.6rem + 6vw, 5.5rem); /* hero display */
   --fs-h1: clamp(2.5rem, 1.7rem + 3.4vw, 3.25rem);   /* ~40 -> 52px */
   --fs-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);  /* ~28 -> 36px */
   --fs-h3: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);   /* ~19 -> 24px */
@@ -75,10 +76,16 @@
   --t-med: 240ms;
   --t-slow: 520ms;
 
+  /* ---- Component-specific (palette-aware) ---- */
+  --c-cta-grad: linear-gradient(100deg, #34402c 0%, #54653a 45%, #c98a3a 100%);
+  --c-cta-btn-text: #7a3b16;
+  --c-btn-dark-bg: #111;
+
   color-scheme: light;
 }
 
-[data-theme="dark"] {
+/* Goofy (Red Panda) — dark */
+[data-theme="dark"]:not([data-palette="pro"]) {
   --c-bg: #16180f;
   --c-bg-elev: #1e2117;
   --c-surface: #24281c;
@@ -96,6 +103,73 @@
   --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.6);
   --c-skeleton: #282e1e;
   --c-skeleton-shine: #323826;
+  color-scheme: dark;
+}
+
+/* ---- Professional — light (near-mono green-tinted paper, cabernet accent) ---- */
+[data-palette="pro"] {
+  /* accent — cabernet (the single pop) */
+  --c-accent: #8f2f43;
+  --c-accent-fill: #7c2838;
+  --c-accent-strong: #5f1f2c;
+  --c-accent-soft: rgba(143, 47, 67, 0.12);
+
+  /* surfaces & text — green-tinted neutrals */
+  --c-bg: #f3f5f0;
+  --c-bg-elev: #ffffff;
+  --c-surface: #e7ece3;
+  --c-surface-2: #eef1ea;
+  --c-text: #17201a;
+  --c-text-muted: #5c665d;
+  --c-heading: #14201a;        /* near-black green (neutral) */
+  --c-subtitle: #566b5b;       /* muted sage */
+  --c-green-dark: #16241b;
+  --c-green-deep: #0e1712;
+  --c-on-dark: #eef1ea;
+  --c-border: rgba(23, 32, 26, 0.12);
+  --c-overlay: rgba(10, 18, 13, 0.5);
+
+  --c-skeleton: #e2e7dd;
+  --c-skeleton-shine: #eef2ea;
+
+  /* component-specific */
+  --c-cta-grad: linear-gradient(100deg, #16241b 0%, #24382a 55%, #7c2838 100%);
+  --c-cta-btn-text: #7c2838;
+  --c-btn-dark-bg: #16241b;
+
+  color-scheme: light;
+}
+
+/* ---- Professional — dark (signature: deep forest-green canvas, cabernet accent) ---- */
+[data-palette="pro"][data-theme="dark"] {
+  /* accent — cabernet, the single pop (vivid enough to read on near-black green) */
+  --c-accent: #d76a7f;
+  --c-accent-fill: #a5384f;
+  --c-accent-strong: #e58a9b;
+  --c-accent-soft: rgba(215, 106, 127, 0.16);
+
+  --c-bg: #0e1611;
+  --c-bg-elev: #131d17;
+  --c-surface: #17231b;
+  --c-surface-2: #1d2a21;
+  --c-text: #e9ede6;
+  --c-text-muted: #97a498;
+  --c-heading: #f2f5ee;        /* near-white (neutral) */
+  --c-subtitle: #8ea391;       /* muted sage */
+  --c-green-dark: #0a120d;
+  --c-green-deep: #070d09;
+  --c-on-dark: #eef1ea;
+  --c-border: rgba(233, 237, 230, 0.12);
+  --c-overlay: rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.6);
+  --c-skeleton: #1a241d;
+  --c-skeleton-shine: #232f26;
+
+  /* component-specific (CTA button chip stays light — cabernet text via the light block) */
+  --c-cta-grad: linear-gradient(100deg, #0e1611 0%, #17231b 55%, #a5384f 100%);
+
   color-scheme: dark;
 }
 

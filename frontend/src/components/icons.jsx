@@ -99,6 +99,14 @@ export function ArrowRightIcon(props) {
   );
 }
 
+export function ChevronDownIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
 export function DownloadIcon(props) {
   return (
     <svg {...stroke} aria-hidden="true" {...props}>

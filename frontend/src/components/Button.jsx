@@ -12,7 +12,7 @@ const VARIANTS = {
   outline:
     'border-accent text-accent bg-transparent hover:bg-accent hover:text-white hover:shadow-[var(--shadow-sm)]',
   solid: 'bg-accent-fill text-white hover:bg-accent hover:shadow-[var(--shadow-md)]',
-  dark: 'bg-[#111] text-white hover:bg-black hover:shadow-[var(--shadow-md)]',
+  dark: 'bg-[color:var(--c-btn-dark-bg)] text-white hover:bg-black hover:shadow-[var(--shadow-md)]',
 };
 
 export default function Button({

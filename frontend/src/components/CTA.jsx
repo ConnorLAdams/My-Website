@@ -9,7 +9,7 @@ export default function CTA() {
   return (
     <section className="section bg-page" id="resume">
       <div className="container">
-        <Reveal className="relative grid grid-cols-1 items-center gap-8 overflow-hidden rounded-lg bg-[linear-gradient(100deg,#34402c_0%,#54653a_45%,#c98a3a_100%)] p-[clamp(2rem,5vw,4rem)] text-white shadow-[var(--shadow-lg)] min-[820px]:grid-cols-[1.25fr_0.75fr]">
+        <Reveal className="relative grid grid-cols-1 items-center gap-8 overflow-hidden rounded-lg cta__panel p-[clamp(2rem,5vw,4rem)] text-white shadow-[var(--shadow-lg)] min-[820px]:grid-cols-[1.25fr_0.75fr]">
           <div className="flex max-w-[48ch] flex-col items-start gap-4">
             <p className="m-0 text-xs font-bold uppercase tracking-[0.14em] text-white/80">
               Résumé / CV
@@ -21,7 +21,7 @@ export default function CTA() {
             </p>
             <div className="mt-1 flex flex-wrap gap-3">
               <a
-                className="inline-flex items-center gap-2 rounded-sm border-2 border-transparent bg-white px-[1.4rem] py-[0.8rem] text-sm font-bold tracking-[-0.01em] text-[#7a3b16] shadow-[var(--shadow-md)] transition duration-[140ms] ease-brand hover:-translate-y-0.5 hover:bg-[#fff8ef] hover:shadow-[var(--shadow-lg)] active:translate-y-0 [&>svg]:size-[1.05em]"
+                className="inline-flex items-center gap-2 rounded-sm border-2 border-transparent bg-white px-[1.4rem] py-[0.8rem] text-sm font-bold tracking-[-0.01em] text-[color:var(--c-cta-btn-text)] shadow-[var(--shadow-md)] transition duration-[140ms] ease-brand hover:-translate-y-0.5 hover:bg-[#fff8ef] hover:shadow-[var(--shadow-lg)] active:translate-y-0 [&>svg]:size-[1.05em]"
                 href={RESUME_URL}
                 download
               >
