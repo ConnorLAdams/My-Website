@@ -9,14 +9,13 @@ export default function OceanScene() {
       <div className="ocean__wave ocean__wave--back" />
       <div className="ocean__wave ocean__wave--mid" />
       <div className="ocean__wave ocean__wave--front" />
-      <img
-        className="ocean__surfer"
-        src="/assets/surfing-rooster.svg"
-        alt=""
-        width="240"
-        height="210"
-        loading="eager"
-      />
+      <div className="ocean__surfer">
+        <div
+          className="ocean__surfer__sprite"
+          role="img"
+          aria-label="A rooster surfing a wave"
+        />
+      </div>
     </div>
   );
 }
