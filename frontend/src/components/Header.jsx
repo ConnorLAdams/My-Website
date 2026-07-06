@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import Button from './Button';
 import ThemeToggle from './ThemeToggle';
 import PaletteToggle from './PaletteToggle';
 
 const NAV_ITEMS = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
   { label: 'Research', href: '#research' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Résumé', href: '#resume' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {
@@ -43,36 +44,27 @@ export default function Header() {
           <span className="logo__text">C. Adams</span>
         </a>
 
-        <div className="site-header__right">
-          <nav
-            id="primary-nav"
-            className={`site-nav${menuOpen ? ' is-open' : ''}`}
-            aria-label="Primary"
-          >
-            <ul className="site-nav__list">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <a
-                    className="site-nav__link"
-                    href={item.href}
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <Button
-              as="a"
-              href="#contact"
-              variant="outline"
-              className="site-nav__cta"
-              onClick={closeMenu}
-            >
-              Contact
-            </Button>
-          </nav>
+        <nav
+          id="primary-nav"
+          className={`site-nav${menuOpen ? ' is-open' : ''}`}
+          aria-label="Primary"
+        >
+          <ul className="site-nav__list">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.href}>
+                <a
+                  className="site-nav__link"
+                  href={item.href}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
+        <div className="site-header__right">
           <PaletteToggle />
           <ThemeToggle />
 

@@ -44,8 +44,8 @@ function getInitialPalette() {
 const THEME_COLORS = {
   'panda-light': '#ffffff',
   'panda-dark': '#16180f',
-  'pro-light': '#f7f4ee',
-  'pro-dark': '#0f1a12',
+  'pro-light': '#f3f5f0',
+  'pro-dark': '#0e1611',
 };
 
 export function ThemeProvider({ children }) {

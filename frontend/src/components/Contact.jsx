@@ -65,7 +65,10 @@ export default function Contact() {
   return (
     <section className="section bg-page" id="contact">
       <div className="container">
-        <Reveal as="h2" className="mb-3 text-center">
+        <Reveal className="mb-3 flex justify-center">
+          <span className="eyebrow">Contact</span>
+        </Reveal>
+        <Reveal as="h2" className="mb-3 text-center" delay={1}>
           Get in touch
         </Reveal>
         <Reveal

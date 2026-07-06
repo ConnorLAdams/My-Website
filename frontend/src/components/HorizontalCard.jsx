@@ -37,10 +37,12 @@ export default function HorizontalCard({
       >
         <h3 className="text-[clamp(1.4rem,1.1rem+1.2vw,1.9rem)]">{title}</h3>
         <p className="max-w-[52ch] leading-[1.7] text-body">{body}</p>
-        <Button as="a" href={href} variant="outline">
-          Learn More
-          <ArrowRightIcon />
-        </Button>
+        {href && href !== '#' && (
+          <Button as="a" href={href} variant="outline">
+            Learn More
+            <ArrowRightIcon />
+          </Button>
+        )}
       </Reveal>
     </div>
   );

@@ -1,48 +1,73 @@
 import React from 'react';
-import Button from './Button';
-import LazyImage from './LazyImage';
 import Reveal from './Reveal';
+import HeroBackground from './HeroBackground';
+import useTypewriter from '../hooks/useTypewriter';
+import { roles } from '../data/content';
+import { GitHubIcon, LinkedInIcon, DownloadIcon } from './icons';
+
+const GITHUB_URL = 'https://github.com/connorladams';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/connorladams';
+const RESUME_URL = '/api/media/Resume.pdf';
+
+const ICON_LINK =
+  'grid h-11 w-11 place-items-center rounded-full border-[1.5px] border-line text-body transition duration-[140ms] ease-brand hover:-translate-y-0.5 hover:border-accent hover:bg-accent-soft hover:text-accent [&>svg]:size-[20px]';
 
 export default function Hero() {
+  const { text, done } = useTypewriter(roles);
+
   return (
     <section
-      className="relative overflow-hidden bg-page py-[clamp(2rem,6vw,6rem)]"
+      className="relative flex min-h-[78vh] items-center justify-center overflow-hidden bg-page py-[clamp(3rem,10vh,7rem)]"
       id="top"
     >
-      <div className="container grid grid-cols-1 items-center gap-8 min-[860px]:grid-cols-[1fr_1.25fr] min-[860px]:gap-[clamp(1.5rem,4vw,3rem)]">
-        <div className="flex flex-col items-start gap-6">
-          <Reveal as="h1" className="min-[860px]:max-w-[12ch]">
-            BI Manager &amp; Mathematician
-          </Reveal>
-          <Reveal
-            as="p"
-            className="max-w-[42ch] text-[1.05rem] font-medium leading-[1.5] text-subtitle"
-            delay={1}
-          >
-            Professional learner with a passion for all things complicated
-          </Reveal>
-          <Reveal delay={2}>
-            <Button
-              as="a"
-              href="https://github.com/connorladams"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit My GitHub
-            </Button>
-          </Reveal>
-        </div>
-
-        <Reveal className="group relative before:absolute before:inset-[14%_-8%_-14%_12%] before:z-0 before:rounded-lg before:bg-[radial-gradient(60%_60%_at_70%_30%,var(--c-accent-soft),transparent_75%)] before:content-['']">
-          {/* className → wrapper (layout + z-index + shadow + rounded corners)
-              imgClassName → img-specific styles (object-fit, hover scale) */}
-          <LazyImage
-            className="relative z-[1] aspect-[686/481] w-full rounded-md shadow-[var(--shadow-lg)]"
-            imgClassName="object-cover transition-transform duration-[520ms] ease-brand group-hover:scale-[1.03]"
-            src="/api/media/hero-rooster.jpg"
-            alt="A proud rooster strutting along the water's edge"
-            loading="eager"
+      <HeroBackground />
+      <div className="container relative z-10 flex flex-col items-center gap-6 text-center">
+        <Reveal
+          as="h1"
+          className="max-w-[18ch] text-[length:var(--text-display)] font-extrabold leading-[1.02] tracking-[-0.03em]"
+        >
+          Hi, I&rsquo;m Connor
+        </Reveal>
+        <Reveal
+          as="p"
+          className="flex min-h-[1.6em] items-center justify-center text-h2 font-semibold text-subtitle"
+          delay={1}
+        >
+          <span aria-live="polite">{text}</span>
+          <span
+            aria-hidden="true"
+            className={`ml-1 inline-block h-[1em] w-[3px] translate-y-[0.12em] bg-accent ${
+              done ? 'opacity-0' : 'motion-safe:animate-pulse'
+            }`}
           />
+        </Reveal>
+        <Reveal className="mt-3 flex items-center justify-center gap-3" delay={2}>
+          <a
+            className={ICON_LINK}
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <GitHubIcon />
+          </a>
+          <a
+            className={ICON_LINK}
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <LinkedInIcon />
+          </a>
+          <a
+            className={ICON_LINK}
+            href={RESUME_URL}
+            download
+            aria-label="Download résumé"
+          >
+            <DownloadIcon />
+          </a>
         </Reveal>
       </div>
     </section>
