@@ -77,6 +77,37 @@ fn escape_html(input: &str) -> String {
         .replace('"', "&quot;")
 }
 
+#[get("/quote")]
+pub async fn get_quote() -> impl Responder {
+    let client = reqwest::Client::new();
+
+    match client
+        .get("https://zenquotes.io/api/random")
+        .header("User-Agent", "connoradams.io/1.0")
+        .send()
+        .await
+    {
+        Ok(resp) if resp.status().is_success() => {
+            match resp.json::<serde_json::Value>().await {
+                Ok(data) => {
+                    let text = data[0]["q"].as_str().unwrap_or("").to_string();
+                    let author = data[0]["a"].as_str().unwrap_or("Unknown").to_string();
+                    // ZenQuotes occasionally injects a promo entry attributed to itself.
+                    if text.is_empty() || author == "zenquotes.io" {
+                        return HttpResponse::BadGateway()
+                            .json(json!({ "error": "Quote unavailable" }));
+                    }
+                    HttpResponse::Ok().json(json!({ "text": text, "author": author }))
+                }
+                Err(_) => HttpResponse::BadGateway()
+                    .json(json!({ "error": "Failed to parse quote response" })),
+            }
+        }
+        _ => HttpResponse::BadGateway()
+            .json(json!({ "error": "Quote service unavailable" })),
+    }
+}
+
 #[post("/contact")]
 pub async fn contact(form: web::Json<ContactForm>) -> impl Responder {
     let name = form.name.trim();
