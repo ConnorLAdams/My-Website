@@ -42,7 +42,9 @@ pub async fn serve_media(
         "jpg" | "jpeg" | "png" | "svg" | "webp" | "gif" | "ico" => {
             "public, max-age=31536000, immutable"
         }
-        "pdf" => "public, max-age=86400",
+        // no-cache: always revalidate via ETag/Last-Modified so an updated
+        // résumé is served immediately without waiting for a TTL to expire.
+        "pdf" => "no-cache",
         _ => "public, max-age=3600",
     };
 
