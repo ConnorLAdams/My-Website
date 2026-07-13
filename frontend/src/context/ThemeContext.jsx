@@ -12,7 +12,7 @@ const PALETTE_KEY = 'ca-palette';
 const ThemeContext = createContext({
   theme: 'light',
   toggleTheme: () => {},
-  palette: 'panda',
+  palette: 'pro',
   togglePalette: () => {},
 });
 
@@ -30,13 +30,13 @@ function getInitialTheme() {
 }
 
 function getInitialPalette() {
-  if (typeof window === 'undefined') return 'panda';
+  if (typeof window === 'undefined') return 'pro';
   try {
     const stored = window.localStorage.getItem(PALETTE_KEY);
     if (stored === 'panda' || stored === 'pro') return stored;
-    return 'panda'; // first-time visitors default to the Goofy (Red Panda) look
+    return 'pro'; // first-time visitors default to the Professional look
   } catch (e) {
-    return 'panda';
+    return 'pro';
   }
 }
 
@@ -79,6 +79,18 @@ export function ThemeProvider({ children }) {
       );
     }
   }, [palette, theme]);
+
+  useEffect(() => {
+    const svgIcon = document.querySelector('link[type="image/svg+xml"]');
+    const pngIcon = document.querySelector('link[rel="icon"]:not([type])');
+    if (palette === 'pro') {
+      if (svgIcon) svgIcon.href = '/assets/harp-favicon.svg';
+      if (pngIcon) pngIcon.href = '/harp-tab.png';
+    } else {
+      if (svgIcon) svgIcon.href = '/Red_Panda_Tab.png';
+      if (pngIcon) pngIcon.href = '/Red_Panda_Tab.png';
+    }
+  }, [palette]);
 
   const toggleTheme = useCallback(
     () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark')),

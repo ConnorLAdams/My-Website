@@ -23,7 +23,7 @@ export const education = [
     icon: 'rocket',
     iconColor: '#3f7cb6',
     body:
-      'Now that I have received my Master\u2019s Degree, I am working toward becoming a machine learning engineer. I would like to begin by working as a data analyst where I can learn more about building and managing data pipelines. My time as a Graduate Teaching Associate gave me a passion for teaching, so if I can in the future, I would like to pursue a part-time career in teaching mathematics at a community college.',
+      'Since graduating, I have built a career in BI and machine learning at Temco Logistics. Starting as a BI Developer, advancing to BI Automation & ML Lead, and now leading a team as BI Manager. Along the way I have had the chance to do exactly what I set out to: build robust data pipelines, train and deploy ML models, and architect cloud infrastructure at scale. My passion for teaching that grew during my time as a Graduate Teaching Associate has not faded, and I still hope to teach mathematics at a community college one day.',
   },
 ];
 
@@ -68,20 +68,60 @@ export const projects = [
       'Modeled orbital motion with numerical integration, simulating two-body and perturbed trajectories and comparing integrator accuracy and stability over long time horizons.',
     href: 'https://github.com/ConnorLAdams/Optimizing-Jump-Between-Orbits/blob/main/MAT_5800_Project.pdf',
   },
+  {
+    id: 'flux-compressor',
+    title: 'Flux Compressor',
+    category: 'Systems',
+    icon: 'flux',
+    iconColor: '#c76936',
+    blurb:
+      'A lossless file-compression utility written in Rust. Implements a custom algorithm to minimize file sizes while preserving data integrity, showcasing systems-level memory safety and performance.',
+    href: 'https://github.com/connoradams-mariner/Flux-Compressor',
+  },
+  {
+    id: 'romeo-sierra-coffee',
+    title: 'RS Coffee Co.',
+    category: 'Web App',
+    icon: 'coffee',
+    iconColor: '#7a5bb0',
+    blurb:
+      'E-commerce platform for Romeo Sierra Coffee Co. A small-batch cold brew concentrate brand. Ships bold, smooth concentrates made with just two ingredients: organic coffee and pink Himalayan salt, with signature blends and rotating seasonal drops.',
+    href: 'https://rscoffeeco.com',
+  },
+  {
+    id: 'project-swing',
+    title: 'Project Swing',
+    category: 'Web App',
+    icon: 'golf',
+    iconColor: '#5a8f3c',
+    blurb:
+      'Website for Project Swing. A private, state-of-the-art golf club fitting studio and instruction facility. Offers custom club fitting and full-service builds, the largest premium shaft matrix of any fitting studio, and PGA Class A instruction.',
+    href: 'https://projectswingwa.com',
+  },
+  {
+    id: '2nd-shot-scratch',
+    title: '2nd Shot Scratch',
+    category: 'Web App',
+    icon: 'flag',
+    iconColor: '#3f7cb6',
+    blurb:
+      'Premium golf e-commerce and the online retail arm of Project Swing. Browse drivers, irons, shafts, and grips from top brands, spec out a fully custom build, and have it assembled by expert builders. Your 2nd shot is always better.',
+    href: 'https://2ndshotscratch.com',
+  },
 ];
 
 // Roles cycled by the hero typewriter.
 export const roles = [
-  'BI Manager',
-  'Mathematician',
-  'Data Analyst',
-  'Machine Learning Engineer',
-  'Educator',
+  'Mathematician (2020)',
+  'Educator (2020)',
+  'BI Developer (2023)',
+  'Automation & ML Lead (2024)',
+  'BI Manager (2025)',
 ];
 
 // Short bio for the About section.
 export const about =
-  "I'm Connor Adams \u2014 a BI Manager and applied mathematician who likes turning messy, complicated problems into clear models and clean data pipelines. I care about rigorous thinking, good tooling, and teaching what I learn along the way.";
+  "I'm Connor Adams. A BI Manager and applied mathematician who likes turning messy, complicated problems into clear models and clean data pipelines. I care about rigorous thinking, good tooling, and teaching what I learn along the way.";
 
 // Experience (from résumé). Structure: role / company / location / period /
 // summary / groups[] where each group has a heading and bullet points.

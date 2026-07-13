@@ -23,12 +23,12 @@ export default function PaletteToggle({ className = '' }) {
       title={label}
     >
       <span className="relative h-5 w-5" aria-hidden="true">
-        {/* Goofy: a playful sparkle (shown when the Professional palette is off) */}
+        {/* Goofy: a playful sparkle (shown when on Professional palette — click to go Goofy) */}
         <svg
           className={`${ICON_BASE} ${
             isPro
-              ? '-rotate-90 scale-[0.4] opacity-0'
-              : 'rotate-0 scale-100 opacity-100'
+              ? 'rotate-0 scale-100 opacity-100'
+              : '-rotate-90 scale-[0.4] opacity-0'
           }`}
           viewBox="0 0 24 24"
           width="20"
@@ -41,12 +41,12 @@ export default function PaletteToggle({ className = '' }) {
         >
           <path d="M12 4l1.8 4.9L19 11l-5.2 1.8L12 18l-1.8-4.9L5 11l5.2-1.8z" />
         </svg>
-        {/* Professional: a briefcase (shown when the Professional palette is on) */}
+        {/* Professional: a briefcase (shown when on Goofy palette — click to go Professional) */}
         <svg
           className={`${ICON_BASE} ${
             isPro
-              ? 'rotate-0 scale-100 opacity-100'
-              : 'rotate-90 scale-[0.4] opacity-0'
+              ? 'rotate-90 scale-[0.4] opacity-0'
+              : 'rotate-0 scale-100 opacity-100'
           }`}
           viewBox="0 0 24 24"
           width="20"

@@ -4,6 +4,7 @@ import HeroBackground from './HeroBackground';
 import useTypewriter from '../hooks/useTypewriter';
 import { roles } from '../data/content';
 import { GitHubIcon, LinkedInIcon, DownloadIcon } from './icons';
+import Tooltip from './Tooltip';
 
 const GITHUB_URL = 'https://github.com/connorladams';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/connorladams';
@@ -42,32 +43,38 @@ export default function Hero() {
           />
         </Reveal>
         <Reveal className="mt-3 flex items-center justify-center gap-3" delay={2}>
-          <a
-            className={ICON_LINK}
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <GitHubIcon />
-          </a>
-          <a
-            className={ICON_LINK}
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon />
-          </a>
-          <a
-            className={ICON_LINK}
-            href={RESUME_URL}
-            download
-            aria-label="Download résumé"
-          >
-            <DownloadIcon />
-          </a>
+          <Tooltip label="GitHub">
+            <a
+              className={ICON_LINK}
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <GitHubIcon />
+            </a>
+          </Tooltip>
+          <Tooltip label="LinkedIn">
+            <a
+              className={ICON_LINK}
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon />
+            </a>
+          </Tooltip>
+          <Tooltip label="Download Résumé">
+            <a
+              className={ICON_LINK}
+              href={RESUME_URL}
+              download
+              aria-label="Download Résumé"
+            >
+              <DownloadIcon />
+            </a>
+          </Tooltip>
         </Reveal>
       </div>
     </section>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { LinkedInIcon, GitHubIcon, InstagramIcon } from './icons';
+import Tooltip from './Tooltip';
+import { useTheme } from '../context/ThemeContext';
 
 const SOCIAL = [
   {
@@ -23,6 +25,8 @@ const SOCIAL = [
 ];
 
 export default function Footer() {
+  const { palette } = useTheme();
+  const isPro = palette === 'pro';
   return (
     <footer className="bg-green-dark text-on-dark" id="footer">
       <div className="container flex flex-wrap items-center justify-between gap-6 py-8 max-[640px]:flex-col max-[640px]:gap-4 max-[640px]:text-center">
@@ -33,7 +37,7 @@ export default function Footer() {
         >
           <img
             className="h-9 w-9 object-contain"
-            src="/assets/logo.svg"
+            src={isPro ? '/assets/irish-harp.svg' : '/assets/logo.svg'}
             alt=""
             width="36"
             height="36"
@@ -48,15 +52,17 @@ export default function Footer() {
         <ul className="flex gap-3">
           {SOCIAL.map(({ id, label, href, Icon }) => (
             <li key={id}>
-              <a
-                className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition duration-[140ms] ease-brand hover:-translate-y-0.5 hover:bg-accent [&>svg]:size-[18px]"
-                href={href}
-                aria-label={label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon />
-              </a>
+              <Tooltip label={label}>
+                <a
+                  className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition duration-[140ms] ease-brand hover:-translate-y-0.5 hover:bg-accent [&>svg]:size-[18px]"
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon />
+                </a>
+              </Tooltip>
             </li>
           ))}
         </ul>

@@ -1,19 +1,49 @@
-import React from 'react';
-import { quotes } from '../data/content';
+import React, { useState, useEffect, useCallback } from 'react';
+import { quotes as fallbackQuotes } from '../data/content';
 import Reveal from './Reveal';
+import { RefreshCwIcon } from './icons';
 
-// Deterministic pick: same quote for a given calendar day (UTC).
-function quoteForToday() {
-  if (!quotes.length) return null;
+// Deterministic fallback so something is shown immediately while the API loads.
+function fallbackForToday() {
+  if (!fallbackQuotes.length) return null;
   const now = new Date();
   const dayIndex = Math.floor(
     Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000,
   );
-  return quotes[dayIndex % quotes.length];
+  return fallbackQuotes[dayIndex % fallbackQuotes.length];
+}
+
+function randomFallback() {
+  if (!fallbackQuotes.length) return null;
+  return fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
 }
 
 export default function QuoteOfDay() {
-  const quote = quoteForToday();
+  const [quote, setQuote] = useState(fallbackForToday);
+  const [loading, setLoading] = useState(false);
+
+  const fetchQuote = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/quote');
+      if (!res.ok) throw new Error('non-ok');
+      const data = await res.json();
+      if (data.text && data.author) {
+        setQuote({ text: data.text, author: data.author });
+      } else {
+        throw new Error('empty');
+      }
+    } catch {
+      setQuote(randomFallback());
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchQuote();
+  }, [fetchQuote]);
+
   if (!quote) return null;
 
   return (
@@ -29,8 +59,17 @@ export default function QuoteOfDay() {
         >
           &ldquo;{quote.text}&rdquo;
         </Reveal>
-        <Reveal as="p" className="text-sm font-semibold text-accent" delay={2}>
-          {quote.author}
+        <Reveal className="flex flex-col items-center gap-3" delay={2}>
+          <p className="text-sm font-semibold text-accent">{quote.author}</p>
+          <button
+            type="button"
+            onClick={fetchQuote}
+            disabled={loading}
+            aria-label="Refresh quote"
+            className="grid h-8 w-8 place-items-center rounded-full border border-line text-muted transition duration-[140ms] ease-brand hover:border-accent hover:text-accent disabled:cursor-not-allowed"
+          >
+            <RefreshCwIcon className={`size-[15px]${loading ? ' animate-spin' : ''}`} />
+          </button>
         </Reveal>
       </div>
     </section>
