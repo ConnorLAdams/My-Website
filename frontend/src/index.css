@@ -194,6 +194,14 @@
   .nav-toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   @media (max-width: 880px) {
+    /* Switch from 3-col grid (logo | nav | controls) to 2-col (logo | controls).
+       The nav is position:absolute so it doesn't occupy grid space — the empty
+       middle column was stealing half the width from the controls on small phones. */
+    .site-header__inner {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-3);
+    }
+
     .nav-toggle { display: block; }
 
     .site-nav {
@@ -228,7 +236,13 @@
 
     .site-nav__link { padding: 14px 6px; }
     .site-nav__link::after { bottom: 8px; }
-    .site-nav__cta { margin-left: 0; align-self: flex-start; }
+  .site-nav__cta { margin-left: 0; align-self: flex-start; }
+
+  /* Hide the date range on very narrow screens — the role + company already
+     identify the job; the period is readable inside the expanded panel. */
+  @media (max-width: 580px) {
+    .exp-header__period { display: none; }
+  }
   }
 
   /* ---- CTA panel: palette-aware gradient background ---- */
@@ -625,6 +639,16 @@
   to { background-position-x: 100%; }
 }
 
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0);   opacity: 0.5; }
+  50%       { transform: translateY(6px); opacity: 1;   }
+}
+
+.scroll-hint {
+  /* 1s initial delay so it appears after the hero content has animated in */
+  animation: scroll-hint 2.2s ease-in-out 1s infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   /* The global transition-duration override in theme.css already collapses the
      opacity fade; also disable the background animation here for completeness. */
@@ -632,6 +656,7 @@
   .ocean__wave,
   .ocean__surfer,
   .ocean__surfer__sprite { animation: none; }
+  .scroll-hint { animation: none; opacity: 0.6; }
 }
 
 code {

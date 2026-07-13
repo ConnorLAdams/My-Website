@@ -3,7 +3,7 @@ import Reveal from './Reveal';
 import HeroBackground from './HeroBackground';
 import useTypewriter from '../hooks/useTypewriter';
 import { roles } from '../data/content';
-import { GitHubIcon, LinkedInIcon, DownloadIcon } from './icons';
+import { GitHubIcon, LinkedInIcon, DownloadIcon, ChevronDownIcon } from './icons';
 import Tooltip from './Tooltip';
 
 const GITHUB_URL = 'https://github.com/connorladams';
@@ -15,6 +15,13 @@ const ICON_LINK =
 
 export default function Hero() {
   const { text, done } = useTypewriter(roles);
+  const [atTop, setAtTop] = React.useState(true);
+
+  React.useEffect(() => {
+    const onScroll = () => setAtTop(window.scrollY < 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <section
@@ -76,6 +83,14 @@ export default function Hero() {
             </a>
           </Tooltip>
         </Reveal>
+      </div>
+      <div
+        aria-hidden="true"
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${
+          atTop ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <ChevronDownIcon className="scroll-hint size-6 text-muted" />
       </div>
     </section>
   );

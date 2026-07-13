@@ -112,11 +112,11 @@ export const projects = [
 
 // Roles cycled by the hero typewriter.
 export const roles = [
-  'Mathematician (2020)',
-  'Educator (2020)',
-  'BI Developer (2023)',
-  'Automation & ML Lead (2024)',
-  'BI Manager (2025)',
+  'Mathematician',
+  'Educator',
+  'BI Developer',
+  'Automation & ML Lead',
+  'BI Manager',
 ];
 
 // Short bio for the About section.
