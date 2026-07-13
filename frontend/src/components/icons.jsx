@@ -91,6 +91,65 @@ export function OrbitIcon(props) {
   );
 }
 
+export function CompressIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <polyline points="4 4 10 4 10 10" />
+      <line x1="10" y1="4" x2="3" y2="11" />
+      <polyline points="20 20 14 20 14 14" />
+      <line x1="14" y1="20" x2="21" y2="13" />
+    </svg>
+  );
+}
+
+export function CoffeeIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M17 8h1a4 4 0 0 1 0 8h-1" />
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+      <line x1="6" y1="2" x2="6" y2="4" />
+      <line x1="10" y1="2" x2="10" y2="4" />
+      <line x1="14" y1="2" x2="14" y2="4" />
+    </svg>
+  );
+}
+
+export function GolfClubIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 85.244 85.244"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M77.152,4.071L66.767,20.7c-0.356,0.573-0.903,0.962-1.503,1.139L31.935,77.712l-4.229,6.297c0,0-11.14,3.616-16.283-1.526c-5.476-5.475-6.399-16.16,7.441-11.228c0.211,0.076,0.431,0.156,0.654,0.242c0,0,6.614,2.932,8.771,4.584l33.597-56.41c-0.089-0.602,0.016-1.235,0.364-1.792L72.64,1.251c0.778-1.247,2.421-1.624,3.666-0.847C77.551,1.181,77.932,2.824,77.152,4.071z" />
+    </svg>
+  );
+}
+
+export function GolfFlagIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <line x1="12" y1="21" x2="12" y2="3" />
+      <path d="M12 3l8 4-8 4Z" fill="currentColor" stroke="none" />
+      <path d="M7 21c0-1.1 2.2-2 5-2s5 .9 5 2" />
+    </svg>
+  );
+}
+
+export function RefreshCwIcon(props) {
+  return (
+    <svg {...stroke} aria-hidden="true" {...props}>
+      <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+      <path d="M3 3v5h5" />
+      <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+      <path d="M16 16h5v5" />
+    </svg>
+  );
+}
+
 export function ArrowRightIcon(props) {
   return (
     <svg {...stroke} aria-hidden="true" {...props}>

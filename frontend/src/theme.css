@@ -106,13 +106,13 @@
   color-scheme: dark;
 }
 
-/* ---- Professional — light (near-mono green-tinted paper, cabernet accent) ---- */
+/* ---- Professional — light (near-mono green-tinted paper, gold accent) ---- */
 [data-palette="pro"] {
-  /* accent — cabernet (the single pop) */
-  --c-accent: #8f2f43;
-  --c-accent-fill: #7c2838;
-  --c-accent-strong: #5f1f2c;
-  --c-accent-soft: rgba(143, 47, 67, 0.12);
+  /* accent — amber gold (the single pop) */
+  --c-accent: #8a5a05;
+  --c-accent-fill: #7a4f04;
+  --c-accent-strong: #5c3a03;
+  --c-accent-soft: rgba(138, 90, 5, 0.12);
 
   /* surfaces & text — green-tinted neutrals */
   --c-bg: #f3f5f0;
@@ -133,20 +133,20 @@
   --c-skeleton-shine: #eef2ea;
 
   /* component-specific */
-  --c-cta-grad: linear-gradient(100deg, #16241b 0%, #24382a 55%, #7c2838 100%);
-  --c-cta-btn-text: #7c2838;
+  --c-cta-grad: linear-gradient(100deg, #16241b 0%, #24382a 55%, #8a5a05 100%);
+  --c-cta-btn-text: #7a4f04;
   --c-btn-dark-bg: #16241b;
 
   color-scheme: light;
 }
 
-/* ---- Professional — dark (signature: deep forest-green canvas, cabernet accent) ---- */
+/* ---- Professional — dark (signature: deep forest-green canvas, gold accent) ---- */
 [data-palette="pro"][data-theme="dark"] {
-  /* accent — cabernet, the single pop (vivid enough to read on near-black green) */
-  --c-accent: #d76a7f;
-  --c-accent-fill: #a5384f;
-  --c-accent-strong: #e58a9b;
-  --c-accent-soft: rgba(215, 106, 127, 0.16);
+  /* accent — amber gold, vivid enough to read on near-black green */
+  --c-accent: #d4a017;
+  --c-accent-fill: #b88914;
+  --c-accent-strong: #f0c040;
+  --c-accent-soft: rgba(212, 160, 23, 0.16);
 
   --c-bg: #0e1611;
   --c-bg-elev: #131d17;
@@ -167,8 +167,8 @@
   --c-skeleton: #1a241d;
   --c-skeleton-shine: #232f26;
 
-  /* component-specific (CTA button chip stays light — cabernet text via the light block) */
-  --c-cta-grad: linear-gradient(100deg, #0e1611 0%, #17231b 55%, #a5384f 100%);
+  /* component-specific (CTA button chip stays light — gold text via the light block) */
+  --c-cta-grad: linear-gradient(100deg, #0e1611 0%, #17231b 55%, #b88914 100%);
 
   color-scheme: dark;
 }

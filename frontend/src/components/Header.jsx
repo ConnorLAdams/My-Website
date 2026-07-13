@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import PaletteToggle from './PaletteToggle';
+import { useTheme } from '../context/ThemeContext';
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -14,6 +15,8 @@ const NAV_ITEMS = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { palette } = useTheme();
+  const isPro = palette === 'pro';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -36,7 +39,7 @@ export default function Header() {
         <a href="#top" className="logo" onClick={goTop} aria-label="C. Adams — home">
           <img
             className="logo__img"
-            src="/assets/logo.svg"
+            src={isPro ? '/assets/irish-harp.svg' : '/assets/logo.svg'}
             alt=""
             width="40"
             height="40"

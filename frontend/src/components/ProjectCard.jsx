@@ -5,6 +5,10 @@ import {
   OscillatorIcon,
   MatrixIcon,
   OrbitIcon,
+  CompressIcon,
+  CoffeeIcon,
+  GolfClubIcon,
+  GolfFlagIcon,
 } from './icons';
 
 const ICONS = {
@@ -12,6 +16,10 @@ const ICONS = {
   oscillator: OscillatorIcon,
   matrix: MatrixIcon,
   orbit: OrbitIcon,
+  flux: CompressIcon,
+  coffee: CoffeeIcon,
+  golf: GolfClubIcon,
+  flag: GolfFlagIcon,
 };
 
 export default function ProjectCard({ title, blurb, href = '#', icon, category }) {

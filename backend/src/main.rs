@@ -39,7 +39,8 @@ async fn main() -> std::io::Result<()> {
             .service(
                 web::scope("/api")
                     .service(handlers::contact)
-                    .service(handlers::serve_media),
+                    .service(handlers::serve_media)
+                    .service(handlers::get_quote),
             )
     })
     .bind(("0.0.0.0", port))?

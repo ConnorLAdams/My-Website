@@ -12,12 +12,13 @@
           }
           document.documentElement.setAttribute("data-theme", t);
           var p = localStorage.getItem("ca-palette");
-          if (p !== "panda" && p !== "pro") { p = "panda"; }
+          if (p !== "panda" && p !== "pro") { p = "pro"; }
           document.documentElement.setAttribute("data-palette", p);
         } catch (e) {}
       })();
     </script>
-    <link rel="icon" href="/Red_Panda_Tab.png" />
+    <link rel="icon" type="image/svg+xml" href="/assets/harp-favicon.svg" />
+    <link rel="icon" href="/harp-tab.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#75834d" />
     <meta
