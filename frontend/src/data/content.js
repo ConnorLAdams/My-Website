@@ -88,26 +88,6 @@ export const projects = [
       'E-commerce platform for Romeo Sierra Coffee Co. A small-batch cold brew concentrate brand. Ships bold, smooth concentrates made with just two ingredients: organic coffee and pink Himalayan salt, with signature blends and rotating seasonal drops.',
     href: 'https://rscoffeeco.com',
   },
-  {
-    id: 'project-swing',
-    title: 'Project Swing',
-    category: 'Web App',
-    icon: 'golf',
-    iconColor: '#5a8f3c',
-    blurb:
-      'Website for Project Swing. A private, state-of-the-art golf club fitting studio and instruction facility. Offers custom club fitting and full-service builds, the largest premium shaft matrix of any fitting studio, and PGA Class A instruction.',
-    href: 'https://projectswingwa.com',
-  },
-  {
-    id: '2nd-shot-scratch',
-    title: '2nd Shot Scratch',
-    category: 'Web App',
-    icon: 'flag',
-    iconColor: '#3f7cb6',
-    blurb:
-      'Premium golf e-commerce and the online retail arm of Project Swing. Browse drivers, irons, shafts, and grips from top brands, spec out a fully custom build, and have it assembled by expert builders. Your 2nd shot is always better.',
-    href: 'https://2ndshotscratch.com',
-  },
 ];
 
 // Roles cycled by the hero typewriter.
